@@ -20,6 +20,10 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "ok")
 }
 
+func Demo(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Welcome to the Demo API!")
+}
+
 func ReadConfig(){
 	fmt.Println("reading config...")
 	config, e := ioutil.ReadFile("/configs/config.json")
@@ -69,6 +73,8 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /{$}", Response)
 	mux.HandleFunc("GET /status", Status)
+	mux.HandleFunc("GET /demo", Demo)
+	
 	loggedMux := Logger(mux)
 
 	server := &http.Server{
