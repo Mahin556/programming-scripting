@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: go-app
-        image: mahinraza556/go-root-status-routes-apis:1.2.0
+        image: mahinraza556/go-root-status-routes-apis:1.1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
